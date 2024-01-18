@@ -1,34 +1,24 @@
-import { useState } from 'react'
-import './App.css'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-
+import { Post } from '@/components/feature'
+import { Container, Theme } from '@radix-ui/themes'
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>e
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <Theme accentColor="teal">
+      <Container
+        size='1'
+        className='[font-family:roboto]'
+      >
+        <div
+          className='w-full h-full flex flex-col gap-1 mt-5'
+        >
+          <header>
+            <h1 className='font-bold text-xl'>Posts</h1>
+          </header>
+          {
+            Array(25).fill(null).map((_, index) => (<Post key={index} />))
+          }
+        </div>
+      </Container>
+    </Theme>
   )
 }
 
