@@ -1,6 +1,7 @@
-import { Post, PublicationBox } from '@/components/feature'
-import { SectionLayout } from '@/components/layouts'
-import { Container, Theme } from '@radix-ui/themes'
+import { Post, PublicationBox } from '@/components/feature';
+import { SectionLayout } from '@/components/layouts';
+import { Container, Theme } from '@radix-ui/themes';
+
 function App() {
   return (
     <Theme accentColor="teal" appearance='dark'>

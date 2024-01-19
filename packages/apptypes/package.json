@@ -1,0 +1,7 @@
+{
+  "name": "apptypes",
+  "types": "src/index.ts",
+  "dependencies": {
+    "typescript": "latest"
+  }
+}
