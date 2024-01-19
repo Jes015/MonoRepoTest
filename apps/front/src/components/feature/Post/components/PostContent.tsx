@@ -6,7 +6,7 @@ export const PostContent: BaseComponentType = () => {
             className="p-1 min-h-[5rem]"
         >
             <p
-                className="font-normal px-1 text-pretty text-sm"
+                className="font-normal px-1 text-pretty text-sm text-textSecondary"
             >
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt tenetur fugit consectetur mollitia! Dicta, sequi labore ipsa, fugiat porro facere ipsam reprehenderit molestiae assumenda laudantium tempora nesciunt. Quidem, harum tenetur!
             </p>

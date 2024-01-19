@@ -1,9 +1,9 @@
-import { Post } from '@/components/feature'
+import { Post, PublicationBox } from '@/components/feature'
 import { SectionLayout } from '@/components/layouts'
 import { Container, Theme } from '@radix-ui/themes'
 function App() {
   return (
-    <Theme accentColor="teal">
+    <Theme accentColor="teal" appearance='dark'>
       <Container
         size='1'
         className='[font-family:roboto]'
@@ -11,7 +11,7 @@ function App() {
         <SectionLayout
           title='Publication box'
         >
-          
+          <PublicationBox />
         </SectionLayout>
         <SectionLayout
           title='Posts'

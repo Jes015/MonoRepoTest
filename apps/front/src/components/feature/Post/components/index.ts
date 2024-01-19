@@ -1,4 +1,4 @@
 export * from './PostContent'
-export * from './PostFooter'
+export * from './PostFooter/PostFooter'
 export * from './PostHeader'
 

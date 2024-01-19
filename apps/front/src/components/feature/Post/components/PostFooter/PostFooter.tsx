@@ -1,16 +1,20 @@
-import { IconNoLike } from "@/assets/Icons"
+import { IconLike, IconNoLike } from "@/assets/Icons"
 import { BaseComponentType } from "@/models"
-import { Suspense, lazy, useState } from "react"
-
+import { Suspense, lazy } from "react"
+import { usePostFooter } from "./hooks"
 
 const Comments = lazy(() => import('@/components/ui').then(module => ({ default: module.Comments })))
 
 export const PostFooter: BaseComponentType = () => {
 
-    const [displayComments, setDisplayComments] = useState(false)
+    const { displayComments, isLiked, toggleDisplayComments, toggleIsLiked} = usePostFooter()
 
     const handleOnClickToDisplayComments = () => {
-        setDisplayComments(prev => !prev)
+        toggleDisplayComments()
+    }
+
+    const handleOnClickToToggleLike = () => {
+        toggleIsLiked()
     }
 
     return (
@@ -34,9 +38,18 @@ export const PostFooter: BaseComponentType = () => {
                     }
                 </button>
                 <button
+                    onClick={handleOnClickToToggleLike}
                     className="flex items-center justify-center gap-1 flex-grow [flex-basis:0] border-l border-l-neutral-800 hover:bg-backgroundHoverPrimary py-1 [transition-duration:0.3s]"
+                    aria-label={isLiked ? 'Dislike post': 'Like post'}
                 >
-                    <IconNoLike className="text-2xl" />
+                    <span className={'text-xs text-textTertiary'}>
+                        1
+                    </span>
+                    <span
+                        className={'text-2xl text-textSecondary'}
+                    >
+                        {isLiked ? <IconLike className="text-red-400" /> : <IconNoLike />}
+                    </span>
                 </button>
             </div>
 

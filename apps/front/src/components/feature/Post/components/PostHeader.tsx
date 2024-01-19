@@ -10,7 +10,10 @@ export const PostHeader: BaseComponentType = () => {
                 className="flex items-center gap-1"
             >
                 <PopoverRoot>
-                    <PopoverTrigger>
+                    <PopoverTrigger
+                        aria-label="Open poster info" 
+                        role="button"
+                    >
                         <Avatar
                             src="https://avatars.githubusercontent.com/u/120581623?v=4"
                             alt="User image"
@@ -42,7 +45,7 @@ export const PostHeader: BaseComponentType = () => {
                             className="px-1"
                         >
                             <p
-                                className="text-neutral-400 text-sm"
+                                className="text-textTertiary text-sm"
                             >
                                 I like to cook
                             </p>
@@ -51,6 +54,11 @@ export const PostHeader: BaseComponentType = () => {
                     </PopoverContent>
                 </PopoverRoot>
                 <h3>My Last post</h3>
+                <span
+                    className="text-xs text-textTertiary font-normal"
+                >
+                    Hace 3 dias
+                </span>
             </div>
             <div
                 className="flex items-center gap-1"

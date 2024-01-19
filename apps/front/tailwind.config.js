@@ -8,7 +8,10 @@ export default {
     extend: {
       colors: {
         borderPrimary: '#262626',
-        backgroundHoverPrimary: '#171717'
+        backgroundHoverPrimary: '#171717',
+        textPrimary: '#eceeed',
+        textSecondary: '#d4d4d4',
+        textTertiary: '#a3a3a3'
       }
     },
   },
