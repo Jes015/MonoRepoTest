@@ -26,7 +26,7 @@ export const Item: BaseComponentType = ({ children, ...props }) => {
                         fallback='e'
                         size='1'
                         radius="full"
-                        className="border-[0.01rem] border-neutral-700 cursor-pointer"
+                        className="border-[0.01rem] border-borderPrimary cursor-pointer"
                     />
                     <span className="text-sm font-bold">Jes015</span>
                 </div>

@@ -1,4 +1,5 @@
 import { Post } from '@/components/feature'
+import { SectionLayout } from '@/components/layouts'
 import { Container, Theme } from '@radix-ui/themes'
 function App() {
   return (
@@ -7,16 +8,18 @@ function App() {
         size='1'
         className='[font-family:roboto]'
       >
-        <div
-          className='w-full h-full flex flex-col gap-1 mt-5'
+        <SectionLayout
+          title='Publication box'
         >
-          <header>
-            <h1 className='font-bold text-xl'>Posts</h1>
-          </header>
+          
+        </SectionLayout>
+        <SectionLayout
+          title='Posts'
+        >
           {
             Array(25).fill(null).map((_, index) => (<Post key={index} />))
           }
-        </div>
+        </SectionLayout>
       </Container>
     </Theme>
   )

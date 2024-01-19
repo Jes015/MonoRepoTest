@@ -15,26 +15,26 @@ export const PostFooter: BaseComponentType = () => {
 
     return (
         <footer
-            className="flex flex-col border-t border-t-neutral-700 font-normal"
+            className="flex flex-col border-t border-borderPrimary font-normal"
         >
             <div
                 className={
                     [
                         "flex",
-                        displayComments ? 'border-b border-b-neutral-700' : ''
+                        displayComments ? 'border-b border-borderPrimary' : ''
                     ].join(' ')
                 }
             >
                 <button
                     onClick={handleOnClickToDisplayComments}
-                    className="flex-grow [flex-basis:0] hover:bg-neutral-800 py-1"
+                    className="flex-grow [flex-basis:0] hover:bg-backgroundHoverPrimary py-1 [transition-duration:0.3s]"
                 >
                     {
                         `${displayComments ? 'Hide comments' : 'Comments'} `
                     }
                 </button>
                 <button
-                    className="flex items-center justify-center gap-1 flex-grow [flex-basis:0] border-l border-l-neutral-700 hover:bg-neutral-800 py-1"
+                    className="flex items-center justify-center gap-1 flex-grow [flex-basis:0] border-l border-l-neutral-800 hover:bg-backgroundHoverPrimary py-1 [transition-duration:0.3s]"
                 >
                     <IconNoLike className="text-2xl" />
                 </button>

@@ -4,7 +4,7 @@ import { Avatar, Button, PopoverContent, PopoverRoot, PopoverTrigger } from "@ra
 export const PostHeader: BaseComponentType = () => {
     return (
         <header
-            className="flex items-center justify-between border-b border-b-neutral-700 p-1"
+            className="flex items-center justify-between border-b border-borderPrimary p-1"
         >
             <div
                 className="flex items-center gap-1"
@@ -17,7 +17,7 @@ export const PostHeader: BaseComponentType = () => {
                             fallback='e'
                             size='2'
                             radius="full"
-                            className="border-[0.01rem] border-neutral-700 cursor-pointer"
+                            className="border-[0.01rem] border-borderPrimary cursor-pointer"
                         />
                     </PopoverTrigger>
                     <PopoverContent
@@ -34,7 +34,7 @@ export const PostHeader: BaseComponentType = () => {
                                 fallback='e'
                                 size='2'
                                 radius="full"
-                                className="border-[0.01rem] border-neutral-700"
+                                className="border-[0.01rem] border-borderPrimary"
                             />
                             <span className="font-bold">Jes015</span>
                         </header>
