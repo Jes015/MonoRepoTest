@@ -1,9 +1,11 @@
-import { BaseComponentProps } from "@/models"
+import { BaseComponentProps } from "@/models";
 
 interface SectionLayoutProps extends BaseComponentProps {
     title: string
+    rightNode?: React.ReactNode
 }
-export const SectionLayout: React.FC<SectionLayoutProps> = ({ title, children, className, ...props }) => {
+
+export const SectionLayout: React.FC<SectionLayoutProps> = ({ title, children, className, rightNode, ...props }) => {
     return (
         <div
             className={
@@ -14,8 +16,11 @@ export const SectionLayout: React.FC<SectionLayoutProps> = ({ title, children, c
             }
             {...props}
         >
-            <header>
+            <header
+                className="flex items-center justify-between"
+            >
                 <h1 className='font-bold text-xl'>{title}</h1>
+                {rightNode}
             </header>
             {children}
         </div>

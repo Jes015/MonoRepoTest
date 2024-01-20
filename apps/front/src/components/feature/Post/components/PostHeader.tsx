@@ -1,7 +1,9 @@
-import { BaseComponentType } from "@/models"
-import { Avatar, Button, PopoverContent, PopoverRoot, PopoverTrigger } from "@radix-ui/themes"
+import { BaseComponentType } from "@/models";
+import { Avatar, Button, PopoverContent, PopoverRoot, PopoverTrigger } from "@radix-ui/themes";
+import { usePostContext } from "../services/context";
 
 export const PostHeader: BaseComponentType = () => {
+    const { data } = usePostContext()
     return (
         <header
             className="flex items-center justify-between border-b border-borderPrimary p-1"
@@ -53,7 +55,7 @@ export const PostHeader: BaseComponentType = () => {
 
                     </PopoverContent>
                 </PopoverRoot>
-                <h3>My Last post</h3>
+                <h3>{data.title}</h3>
                 <span
                     className="text-xs text-textTertiary font-normal"
                 >

@@ -1,33 +1,56 @@
-import { BaseComponentType } from "@/models"
-import { Button, TextArea, TextField } from "@radix-ui/themes"
+import { BaseComponentProps } from "@/models";
+import { Button, TextArea, TextField } from "@radix-ui/themes";
+import { useForm } from "react-hook-form";
+import { PublicationBoxForm } from "./models";
 
-export const PublicationBox: BaseComponentType = ({ children, ...props }) => {
+interface PublicationBoxProps extends BaseComponentProps {
+    onFormSubmit: (data: PublicationBoxForm) => void;
+}
+
+export const PublicationBox: React.FC<PublicationBoxProps> = ({ onFormSubmit, ...props }) => {
+    const {
+        register,
+        handleSubmit,
+        formState: {
+            isSubmitting
+        }
+    } = useForm<PublicationBoxForm>();
+
+    const handleOnSubmit = handleSubmit((data) => {
+        onFormSubmit(data);
+    });
+
     return (
         <div
-            className={
-                [
-                    "flex flex-col gap-1"
-                ].join(' ')
-            }
             {...props}
         >
-            <TextField.Root>
-                <TextField.Input
-                    placeholder="Photo with bad bunny and arcangel in our last single <3"
-                />
-            </TextField.Root>
-            <TextArea placeholder="Reply to comment…" />
-            <footer
-                className="flex justify-end" 
+            <form
+                className="flex flex-col gap-1"
+                onSubmit={handleOnSubmit}
             >
-                <Button
-                    variant="outline"
-                    className="cursor-pointer"
+                <TextField.Root>
+                    <TextField.Input
+                        placeholder="Photo with bad bunny and arcangel in our last single <3"
+                        {...register('title', { required: true })}
+                    />
+                </TextField.Root>
+                <TextArea
+                    placeholder="Reply to comment…"
+                    {...register('content', { required: true })}
+                />
+                <footer
+                    className="flex justify-end"
                 >
-                    Publish
-                </Button>
-            </footer>
-            {children}
+                    <Button
+                        variant="outline"
+                        className="cursor-pointer"
+                        type="submit"
+                        disabled={isSubmitting}
+                    >
+                        {isSubmitting ? 'Loading' : 'Publish'}
+                    </Button>
+                </footer>
+            </form>
         </div>
-    )
-}
+    );
+};

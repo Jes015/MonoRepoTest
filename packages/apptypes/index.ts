@@ -17,4 +17,5 @@ export interface IPost {
 
 export type TPostPartial = Partial<IPost>
 
-export type TPostArray = TPostPartial[]
+export type TPostArray = IPost[]
+export type TPostArrayPartial = TPostPartial[]
