@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
-import { TPostArray, TPostPartial } from 'apptypes';
+import { TPostArrayPartial, TPostPartial } from 'apptypes';
 @Injectable()
 export class PostsService {
-  private posts: TPostArray = [];
+  private posts: TPostArrayPartial = [];
 
   public add(post: TPostPartial) {
     post.id = crypto.randomUUID();
@@ -12,7 +12,7 @@ export class PostsService {
     return post;
   }
 
-  public getAll(): TPostArray {
+  public getAll(): TPostArrayPartial {
     return structuredClone(this.posts);
   }
 }

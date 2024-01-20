@@ -1,7 +1,9 @@
-import { BaseComponentType } from "@/models"
-import { ScrollArea } from "@radix-ui/themes"
+import { BaseComponentType } from "@/models";
+import { ScrollArea } from "@radix-ui/themes";
+import { usePostContext } from "../services/context/";
 
 export const PostContent: BaseComponentType = () => {
+    const { data } = usePostContext()
     return (
         <div
             className="flex flex-col gap-2 p-1 min-h-[5rem]"
@@ -13,17 +15,11 @@ export const PostContent: BaseComponentType = () => {
                 >
                 </div>
             }
-            <ScrollArea 
-                type="auto" scrollbars="vertical" className="font-normal text-sm max-h-[120px] px-1">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt tenetur fugit consectetur mollitia! Dicta, sequi labore ipsa, fugiat porro facere ipsam reprehenderit molestiae assumenda laudantium tempora nesciunt. Quidem, harum tenetur!
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt tenetur fugit consectetur mollitia! Dicta, sequi labore ipsa, fugiat porro facere ipsam reprehenderit molestiae assumenda laudantium tempora nesciunt. Quidem, harum tenetur!
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt tenetur fugit consectetur mollitia! Dicta, sequi labore ipsa, fugiat porro facere ipsam reprehenderit molestiae assumenda laudantium tempora nesciunt. Quidem, harum tenetur!
-            </ScrollArea>
-            <p
-                className="font-normal px-1 text-pretty text-sm text-textSecondary"
+            <ScrollArea
+                type="auto" scrollbars="vertical" className="font-normal text-sm max-h-[120px] px-1"
             >
-
-            </p>
+                {data.content}
+            </ScrollArea>
         </div>
-    )
-}
+    );
+};

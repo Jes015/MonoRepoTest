@@ -1,6 +1,7 @@
-import { Post, PublicationBox } from '@/components/feature';
-import { SectionLayout } from '@/components/layouts';
+import { swrConfig } from '@/config';
+import { HomePage } from '@/pages';
 import { Container, Theme } from '@radix-ui/themes';
+import { SWRConfig } from 'swr';
 
 function App() {
   return (
@@ -9,21 +10,14 @@ function App() {
         size='1'
         className='[font-family:roboto]'
       >
-        <SectionLayout
-          title='Publication box'
+        <SWRConfig
+          value={swrConfig}
         >
-          <PublicationBox />
-        </SectionLayout>
-        <SectionLayout
-          title='Posts'
-        >
-          {
-            Array(25).fill(null).map((_, index) => (<Post key={index} />))
-          }
-        </SectionLayout>
+          <HomePage />
+        </SWRConfig>
       </Container>
     </Theme>
-  )
+  );
 }
 
-export default App
+export default App;
