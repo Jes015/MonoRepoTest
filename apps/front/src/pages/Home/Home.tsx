@@ -1,9 +1,7 @@
-import { BaseComponentType } from "@/models";
-import { PostsSection, PublishSection } from './components';
+import { BaseComponentType } from "@/models"
+import { PostsSection, PublishSection } from './components'
 
-
-export const HomePage: BaseComponentType = () => {
-    
+export const HomePage: BaseComponentType = () => {    
     return (
         <>
             <PublishSection />

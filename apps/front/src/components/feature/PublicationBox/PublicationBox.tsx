@@ -1,10 +1,11 @@
-import { BaseComponentProps } from "@/models";
-import { Button, TextArea, TextField } from "@radix-ui/themes";
-import { useForm } from "react-hook-form";
-import { PublicationBoxForm } from "./models";
+import { CustomTextField } from "@/components/ui"
+import { BaseComponentProps } from "@/models"
+import { Button, TextArea, TextField } from "@radix-ui/themes"
+import { useForm } from "react-hook-form"
+import { PublicationBoxForm } from "./models"
 
 interface PublicationBoxProps extends BaseComponentProps {
-    onFormSubmit: (data: PublicationBoxForm) => void;
+    onFormSubmit: (data: PublicationBoxForm) => void
 }
 
 export const PublicationBox: React.FC<PublicationBoxProps> = ({ onFormSubmit, ...props }) => {
@@ -14,11 +15,11 @@ export const PublicationBox: React.FC<PublicationBoxProps> = ({ onFormSubmit, ..
         formState: {
             isSubmitting
         }
-    } = useForm<PublicationBoxForm>();
+    } = useForm<PublicationBoxForm>()
 
     const handleOnSubmit = handleSubmit((data) => {
-        onFormSubmit(data);
-    });
+        onFormSubmit(data)
+    })
 
     return (
         <div
@@ -28,16 +29,22 @@ export const PublicationBox: React.FC<PublicationBoxProps> = ({ onFormSubmit, ..
                 className="flex flex-col gap-1"
                 onSubmit={handleOnSubmit}
             >
-                <TextField.Root>
-                    <TextField.Input
-                        placeholder="Photo with bad bunny and arcangel in our last single <3"
-                        {...register('title', { required: true })}
+                <CustomTextField>
+                    <CustomTextField.Label>Title</CustomTextField.Label>
+                    <TextField.Root>
+                        <TextField.Input
+                            placeholder="Photo with bad bunny and arcangel in our last single <3"
+                            {...register('title', { required: true })}
+                        />
+                    </TextField.Root>
+                </CustomTextField>
+                <CustomTextField>
+                    <CustomTextField.Label>Content</CustomTextField.Label>
+                    <TextArea
+                        placeholder="Reply to comment…"
+                        {...register('content', { required: true })}
                     />
-                </TextField.Root>
-                <TextArea
-                    placeholder="Reply to comment…"
-                    {...register('content', { required: true })}
-                />
+                </CustomTextField>
                 <footer
                     className="flex justify-end"
                 >
@@ -52,5 +59,5 @@ export const PublicationBox: React.FC<PublicationBoxProps> = ({ onFormSubmit, ..
                 </footer>
             </form>
         </div>
-    );
-};
+    )
+}
